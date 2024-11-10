@@ -1,5 +1,5 @@
 
-#24.11.10. 
+#24.11.10. 14:35 결국은 plug 값만 넣고 예측을 했는데 계속 주말에도 occupancy라고 예측을 함....그래서 그냥 기존 파일에서 그냥 가야할듯(241110 test v0.2로 갔음)
 
 import pandas as pd
 import datetime
@@ -8,13 +8,16 @@ import plotly.graph_objects as go
 from hmmlearn.hmm import GaussianHMM
 import holidays
 import warnings
+from pathlib import Path
 warnings.filterwarnings('ignore')
+
+current_dir = Path().resolve()
 
 file_list = [
     # r"C:\Users\come1\OneDrive\바탕 화면\승건\승건\EAN\데사팀\lskeantech\occupancyAI(재실탐지)\ean_energy\csv\merged_4f_v0.2.csv",
     # r"C:\Users\come1\OneDrive\바탕 화면\승건\승건\EAN\데사팀\lskeantech\occupancyAI(재실탐지)\ean_energy\csv\merged_5f_v0.2.csv",
     # r"C:\Users\come1\OneDrive\바탕 화면\승건\승건\EAN\데사팀\lskeantech\occupancyAI(재실탐지)\ean_energy\csv\merged_6f_v0.2.csv",
-    r"C:\Users\come1\OneDrive\바탕 화면\승건\승건\EAN\데사팀\lskeantech\occupancyAI(재실탐지)\ean_energy\csv\merged_7f_v0.2.csv",
+    current_dir / 'occupancyAI(재실탐지)' / 'ean_energy' / 'csv' / 'merged_7f_v0.2.csv',
     # r"C:\Users\come1\OneDrive\바탕 화면\승건\승건\EAN\데사팀\lskeantech\occupancyAI(재실탐지)\ean_energy\csv\merged_8f_v0.2.csv",
     # r"C:\Users\come1\OneDrive\바탕 화면\승건\승건\EAN\데사팀\lskeantech\occupancyAI(재실탐지)\ean_energy\csv\merged_9f_v0.2.csv",
     # r"C:\Users\come1\OneDrive\바탕 화면\승건\승건\EAN\데사팀\lskeantech\occupancyAI(재실탐지)\ean_energy\csv\merged_10f_v0.2.csv"
@@ -60,7 +63,9 @@ for f_name in file_list:
  # 주말 및 공휴일 구분 열 추가
  df['weekday'] = df.index.to_series().apply(lambda x: 0 if x.weekday() >= 5 or x in kr_holidays else 1)
 
-
+     # plug 열의 앞 5개, 현재, 뒤 5개의 평균값을 구해서 새로운 피처로 추가
+ df['plug_mean_5'] = df['plug'].rolling(window=11, center=True).mean()
+ df['plug_mean_5'] = df['plug_mean_5'].fillna(method='bfill').fillna(method='ffill')
 #  target_data = df.loc[start_date: end_date, :]
  target_data = df.loc[start_date-datetime.timedelta(days=20): end_date, :]
 
@@ -75,9 +80,11 @@ for f_name in file_list:
     # 이전 20일 전열 사용량으로 학습 데이터 설정
      date_start_20 = target_start - datetime.timedelta(days=20)
      data_20 = target_data.loc[date_start_20:target_end]
+
+
     
     # 결측치 제거
-     data_20 = data_20.dropna(subset=['plug'])
+     data_20 = data_20.dropna(subset=['plug', 'plug_mean_5'])
      if data_20.empty:
         print(f"{target_start} - 학습 데이터가 부족하여 예측을 건너뜁니다.")
         continue
@@ -87,13 +94,13 @@ for f_name in file_list:
   ## covariance_type은 모델의 가우시안 분포의 공분산 형태
   ## n_iter는 모델 학습을 위한 최대 반복 횟수
 
-     hmm.fit(data_20[['plug']].values)
-     plug_today = target_data.loc[target_start:target_end, ['plug']].dropna()
+     hmm.fit(data_20[['plug','plug_mean_5','weekday']].values.reshape(-1, 1))
+     plug_today = target_data.loc[target_start:target_end, ['plug','plug_mean_5','weekday']].dropna()
      if plug_today.empty:
         print(f"{target_start} - 예측 대상 데이터가 없어 건너뜁니다.")
         continue
     # 예측 수행
-     mask = hmm.predict(plug_today[['plug']].values)
+     mask = hmm.predict(plug_today[['plug','plug_mean_5','weekday']].values.reshape(-1, 1))
 #   ].dropna()를 통해 결측치 제거
 #   
   

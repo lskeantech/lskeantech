@@ -6,7 +6,10 @@ import datetime
 import plotly.graph_objects as go
 from hmmlearn.hmm import GaussianHMM
 import warnings
+from pathlib import Path
 warnings.filterwarnings('ignore')
+
+current_dir = Path().resolve()
 
 file_list = [
     # r"C:\Users\come1\OneDrive\바탕 화면\승건\승건\EAN\데사팀\lskeantech\occupancyAI(재실탐지)\ean_energy\csv\merged_4f_v0.2.csv",
@@ -151,6 +154,8 @@ for f_name in file_list:
   daily_energy_waste.loc[target_start, 'heatcool'] = data_1d.heatcool.sum()
   daily_energy_waste.loc[target_start, 'heatcool_waste'] = data_1d.heatcool_waste.sum()
 
+
+
     # 재실 추정 결과
  from plotly.subplots import make_subplots
  fig = make_subplots(
@@ -182,4 +187,4 @@ for f_name in file_list:
  fig.update_layout(height=700, width=1200, showlegend=True)
  fig.show()
 
- target_data.to_csv('target_data_result.csv', encoding='euc-kr')
+target_data.to_csv('target_data_result.csv', encoding='euc-kr')
