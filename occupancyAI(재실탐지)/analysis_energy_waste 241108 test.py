@@ -2,7 +2,11 @@ import pandas as pd
 import datetime
 import plotly.graph_objects as go
 from hmmlearn.hmm import GaussianHMM
-f_name = r"C:\Users\User\Desktop\승건\데사팀\occupancyAI(재실탐지)\ean_energy\csv\merged_4f_v0.2.csv"
+from pathlib import Path
+
+# f_name = r"C:\Users\User\Desktop\승건\데사팀\occupancyAI(재실탐지)\ean_energy\csv\merged_4f_v0.2.csv"
+current_dir = Path().resolve()
+f_name = current_dir / 'occupancyAI(재실탐지)' / 'ean_energy' / 'csv' / 'merged_4f_v0.2.csv'
 df = pd.read_csv(f_name, index_col=0, header=0)
 ##header: 이 앞에는 아무 행도 오지못하게 하겠다 라는 뜻
 
