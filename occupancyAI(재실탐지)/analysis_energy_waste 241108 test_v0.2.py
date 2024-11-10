@@ -9,20 +9,20 @@ import warnings
 warnings.filterwarnings('ignore')
 
 file_list = [
-    # r"C:\Users\User\Desktop\승건\데사팀\occupancyAI(재실탐지)\ean_energy\csv\merged_4f_v0.2.csv",
-    # r"C:\Users\User\Desktop\승건\데사팀\occupancyAI(재실탐지)\ean_energy\csv\merged_5f_v0.2.csv",
-    # r"C:\Users\User\Desktop\승건\데사팀\occupancyAI(재실탐지)\ean_energy\csv\merged_6f_v0.2.csv",
-    # r"C:\Users\User\Desktop\승건\데사팀\occupancyAI(재실탐지)\ean_energy\csv\merged_7f_v0.2.csv",
-    # r"C:\Users\User\Desktop\승건\데사팀\occupancyAI(재실탐지)\ean_energy\csv\merged_8f_v0.2.csv",
-    # r"C:\Users\User\Desktop\승건\데사팀\occupancyAI(재실탐지)\ean_energy\csv\merged_9f_v0.2.csv",
-    # r"C:\Users\User\Desktop\승건\데사팀\occupancyAI(재실탐지)\ean_energy\csv\merged_10f_v0.2.csv"
-    r"C:\Users\User\Desktop\승건\데사팀\occupancyAI(재실탐지)\namutech\csv\merged_1f.csv",
-    r"C:\Users\User\Desktop\승건\데사팀\occupancyAI(재실탐지)\namutech\csv\merged_2f.csv",
-    r"C:\Users\User\Desktop\승건\데사팀\occupancyAI(재실탐지)\namutech\csv\merged_3f.csv",
-    r"C:\Users\User\Desktop\승건\데사팀\occupancyAI(재실탐지)\namutech\csv\merged_4f.csv",
-    r"C:\Users\User\Desktop\승건\데사팀\occupancyAI(재실탐지)\namutech\csv\merged_5f.csv",
-    r"C:\Users\User\Desktop\승건\데사팀\occupancyAI(재실탐지)\namutech\csv\merged_6f.csv",
-    r"C:\Users\User\Desktop\승건\데사팀\occupancyAI(재실탐지)\namutech\csv\merged_7f.csv"
+    # r"C:\Users\come1\OneDrive\바탕 화면\승건\승건\EAN\데사팀\lskeantech\occupancyAI(재실탐지)\ean_energy\csv\merged_4f_v0.2.csv",
+    # r"C:\Users\come1\OneDrive\바탕 화면\승건\승건\EAN\데사팀\lskeantech\occupancyAI(재실탐지)\ean_energy\csv\merged_5f_v0.2.csv",
+    # r"C:\Users\come1\OneDrive\바탕 화면\승건\승건\EAN\데사팀\lskeantech\occupancyAI(재실탐지)\ean_energy\csv\merged_6f_v0.2.csv",
+    r"C:\Users\come1\OneDrive\바탕 화면\승건\승건\EAN\데사팀\lskeantech\occupancyAI(재실탐지)\ean_energy\csv\merged_7f_v0.2.csv",
+    # r"C:\Users\come1\OneDrive\바탕 화면\승건\승건\EAN\데사팀\lskeantech\occupancyAI(재실탐지)\ean_energy\csv\merged_8f_v0.2.csv",
+    # r"C:\Users\come1\OneDrive\바탕 화면\승건\승건\EAN\데사팀\lskeantech\occupancyAI(재실탐지)\ean_energy\csv\merged_9f_v0.2.csv",
+    # r"C:\Users\come1\OneDrive\바탕 화면\승건\승건\EAN\데사팀\lskeantech\occupancyAI(재실탐지)\ean_energy\csv\merged_10f_v0.2.csv"
+    # r"C:\Users\User\Desktop\승건\데사팀\occupancyAI(재실탐지)\namutech\csv\merged_1f.csv",
+    # r"C:\Users\User\Desktop\승건\데사팀\occupancyAI(재실탐지)\namutech\csv\merged_2f.csv",
+    # r"C:\Users\User\Desktop\승건\데사팀\occupancyAI(재실탐지)\namutech\csv\merged_3f.csv",
+    # r"C:\Users\User\Desktop\승건\데사팀\occupancyAI(재실탐지)\namutech\csv\merged_4f.csv",
+    # r"C:\Users\User\Desktop\승건\데사팀\occupancyAI(재실탐지)\namutech\csv\merged_5f.csv",
+    # r"C:\Users\User\Desktop\승건\데사팀\occupancyAI(재실탐지)\namutech\csv\merged_6f.csv",
+    # r"C:\Users\User\Desktop\승건\데사팀\occupancyAI(재실탐지)\namutech\csv\merged_7f.csv"
     ]
 
 
