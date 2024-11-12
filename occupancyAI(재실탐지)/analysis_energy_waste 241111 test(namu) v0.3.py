@@ -47,8 +47,7 @@ for target_date in date_range:
   hmm.fit(data_20['plug'].values.reshape(-1, 1))
   plug_today = target_data.loc[target_start:target_end, ['plug']]
   mask = hmm.predict(plug_today.values.reshape(-1, 1))
-#   
-  
+#     
 # hmm부터는 머신러닝 코딩 부분임
 # 2주동안 학습한 데이터들로, plug부분만의 데이터로 0인지 1인지 클러스팅을 진행
 
