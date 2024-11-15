@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # * co2 데이터 추가해서 해보려고 함. 8,9 층의 2024년 8월 14일부터만 co2데이터가 있어서 9, 10월만 예측할것임 
 # * 48~55열과 같이 weekday에 전열값 곱하고 가중치 100 하니까 정확도 장난아니게 높아졌음
@@ -5,6 +6,9 @@
 
 
 
+=======
+# co2 데이터 추가해서 해보려고 함. 8,9 층의 2024년 8월 14일부터만 co2데이터가 있어서 9, 10월만 예측할것임
+>>>>>>> abbf48bc6efc7a6bdd60520d455da47bb431c5a9
 
 import pandas as pd
 import datetime
@@ -16,7 +20,11 @@ from pathlib import Path
 
 # f_name = r"C:\Users\User\Desktop\승건\데사팀\occupancyAI(재실탐지)\ean_energy\csv\merged_4f_v0.2.csv"
 current_dir = Path().resolve()
+<<<<<<< HEAD
 f_name = current_dir / 'lskeantec' / 'occupancy 예측' / 'namutech' / 'csv' / 'merged_4f.csv'
+=======
+f_name = current_dir / 'lskeantec' / 'occupancy 예측' / 'namutech' / 'csv' / 'merged_7f.csv'
+>>>>>>> abbf48bc6efc7a6bdd60520d455da47bb431c5a9
 df = pd.read_csv(f_name, index_col=0, header=0)
 ##header: 이 앞에는 아무 행도 오지못하게 하겠다 라는 뜻
 
@@ -35,7 +43,10 @@ df.index=pd.to_datetime(df.index)
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> abbf48bc6efc7a6bdd60520d455da47bb431c5a9
   # 한국 공휴일 설정
 kr_holidays = holidays.KR(years=[2024])
 
