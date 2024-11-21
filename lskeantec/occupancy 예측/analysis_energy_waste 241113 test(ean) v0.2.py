@@ -14,7 +14,7 @@ from pathlib import Path
 
 # f_name = r"C:\Users\User\Desktop\승건\데사팀\occupancyAI(재실탐지)\ean_energy\csv\merged_4f_v0.2.csv"
 current_dir = Path().resolve()
-f_name = current_dir / 'lskeantec' / 'occupancy 예측' / 'ean' / 'csv' / 'merged_6f_v0.2.csv'
+f_name = current_dir / 'lskeantec' / 'occupancy 예측' / 'ean' / 'csv' / 'merged_9f_v0.2.csv'
 df = pd.read_csv(f_name, index_col=0, header=0)
 ##header: 이 앞에는 아무 행도 오지못하게 하겠다 라는 뜻
 
@@ -28,8 +28,8 @@ fig.add_trace(go.Scatter(x=df.index, y=df.plug, mode='lines', name='전열사용
 9# fig.show()  #결과 보이고싶을떈 다시 보이게 하자!
 
 #? 이 부분도 월마다 쭉 돌아가서 결과 뽑고 없는 경우 안뽑는 그런 코드 짜고 싶음
-start_date = datetime.datetime(year=2022, month=11, day=1, hour=0, minute=0)
-end_date = datetime.datetime(year=2022, month=11, day=30, hour=23, minute=59)
+start_date = datetime.datetime(year=2024, month=10, day=1, hour=0, minute=0)
+end_date = datetime.datetime(year=2024, month=10, day=30, hour=23, minute=59)
 
 df.index=pd.to_datetime(df.index)
 
